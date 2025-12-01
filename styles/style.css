@@ -1,0 +1,124 @@
+:root {
+    /* theme colors */
+    --theme-clr-1: rgb(150, 18, 155);
+    --theme-clr-2: rgb(36, 167, 101);
+    --theme-clr-3: rgb(238, 230, 173);
+    --theme-clr-4: rgb(46, 106, 218);
+    --theme-clr-5: rgb(25, 182, 209);
+    --theme-clr-6: rgb(228, 240, 246);
+    --theme-clr-7: rgb(25, 46, 56);
+
+    /* we can assign variables to other variables */
+    --clr-primary: var(--theme-clr-1);
+    --clr-secondary: var(--theme-clr-2);
+    --clr-accent: var(--theme-clr-3);
+    --clr-bg-primary: var(--theme-clr-6);
+    --clr-bg-secondary: var(--theme-clr-7);
+
+
+    /* font families */
+    /* fonts with a serif has a little line that helps us read long texts, 
+    fonts without it are called sans-serif (without serif) */
+    --font-base: Raleway, sans-serif;
+    --font-headings: 'Cherry Swash', serif;
+
+    /* font-sizes from normal to extra large*/
+    --fs-sm: 0.875rem;
+    --fs-md: 1rem;
+    --fs-l: 1.25rem;
+    --fs-xl: 1.75rem;
+
+    /* font-weights */
+    --fw-extra-bold: 900;
+    --fw-normal: 400;
+
+    /* spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing: 1rem;
+    --spacing-large: 2rem;
+
+    /* border-radius */
+    --border-radius-xs: 0.25rem;
+
+    /* max-width */
+    --max-width: 1200px;
+
+    /* borders */
+    --border-primary: 0.125rem solid var(--clr-primary);
+}
+
+body {
+    font-family: var(--font-base);
+}
+
+a {
+    color: var(--clr-primary);
+}
+
+footer h2 {
+    /* since this is still a h2 we can override the value of that local variable */
+    --_clr-local-variable: var(--clr-secondary);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-headings);
+    color: var(--clr-accent);
+    font-weight: var(--fw-extra-bold);
+    margin-bottom: var(--spacing);
+}
+
+h1 {
+    /* we can change the value of variables instead of changing color, for example */
+    --clr-accent: rgb(25, 182, 209);
+    /* color: var(--clr-primary); */
+    font-size: var(--fs-xl);
+    margin-top: var(--spacing);
+}
+
+h2 {
+    /* this is a local variable, often we start the name with --_ to indicate that. 
+    This will only be available in the scope of the h2 */
+    --_clr-local-variable: var(--theme-clr-4);
+    font-size: var(--fs-l);
+    margin-bottom: var(--fs-xl);
+
+
+    /* we can also make bigger things like this border with a variable */
+    border: var(--border-primary);
+    background-color: var(--_clr-local-variable);
+    padding: var(--spacing);
+}
+
+img {
+    /* sometimes heigth on images makes sense, otherwise it's good to avoid height in general in css */
+
+    /* setting height in px makes the image the same size even if the browser text is set to large, 
+    setting in in rem allows the image to become larger with the text. */
+
+    /* height: 20rem; */
+    height: 300px;
+    width: 100%;
+
+    /* in var() we can set a fallback value as second value to be used when the first is not set */
+    /* some values are ok hard coded, like things we don't use more than once, but if we use the same value over and over it can be good to extract it. */
+    border: 2px solid var(--_clr-local-variable, rgb(104, 144, 209));
+
+    /* makes so the image doesn't stretch when we resize it, instead it will be cropped */
+    object-fit: cover;
+}
+
+main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    background-color: var(--clr-bg-primary);
+    padding-bottom: var(--spacing);
+}
+
+ul {
+    margin: var(--spacing) 0;
+    padding-inline-start: var(--spacing-large);
+}
