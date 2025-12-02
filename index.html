@@ -16,28 +16,28 @@
 </head>
 
 <body>
-    <!-- <header>
+    <header>
         <ul>
             <li><a href="/">link1</a></li>
             <li><a href="/">link2</a></li>
             <li><a href="/">link3</a></li>
             <li><a href="/">link4</a></li>
         </ul>
-    </header> -->
+    </header>
     <main>
-        <article class="article-example-1">
+        <article class="article-example-1 flow">
             <img src="https://picsum.photos/id/67/1600/1800" alt="placeholder">
             <h1>Heading 1</h1>
-            <section>
+            <section class="flow">
                 <h2 class="heading-2">Heading 2 - Example heading 2 that is a bit longer</h2>
-                <div class="parent">
+                <div class="parent flow">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam illum alias aperiam eligendi
                         cumque
                         error
                         dolor, ratione, culpa voluptatum voluptatibus quidem aspernatur aut corporis est molestiae
                         quisquam.
                         Inventore, minima adipisci?</p>
-                    <ul>
+                    <ul class="main-list">
                         <li class="child">
                             <p>item1</p>
                         </li>
@@ -45,7 +45,11 @@
                             <p>item2</p>
                         </li>
                         <li class="child">
-                            <p>item3</p>
+                            <ul>
+                                <li>grandchild1</li>
+                                <li>grandchild2</li>
+                                <li>grandchild3</li>
+                            </ul>
                         </li>
                         <li class="child">
                             <p><i>item4</i></p>

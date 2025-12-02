@@ -53,12 +53,12 @@ body {
 }
 
 a {
+    text-decoration: none;
     color: var(--clr-primary);
-}
 
-footer h2 {
-    /* since this is still a h2 we can override the value of that local variable */
-    --_clr-local-variable: var(--clr-secondary);
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 h1,
@@ -68,7 +68,6 @@ h4 {
     font-family: var(--font-headings);
     color: var(--clr-accent);
     font-weight: var(--fw-extra-bold);
-    margin-bottom: var(--spacing);
 }
 
 h1 {
@@ -76,7 +75,6 @@ h1 {
     --clr-accent: rgb(25, 182, 209);
     /* color: var(--clr-primary); */
     font-size: var(--fs-xl);
-    margin-top: var(--spacing);
 }
 
 h2 {
@@ -84,7 +82,6 @@ h2 {
     This will only be available in the scope of the h2 */
     --_clr-local-variable: var(--theme-clr-4);
     font-size: var(--fs-l);
-    margin-bottom: var(--fs-xl);
 
 
     /* we can also make bigger things like this border with a variable */
@@ -119,8 +116,12 @@ main {
 }
 
 ul {
-    margin: var(--spacing) 0;
+    margin-inline: var(--spacing) 0;
     padding-inline-start: var(--spacing-large);
+}
+
+.main-list>li {
+    border: 1px dotted cornflowerblue;
 }
 
 .article-example-1 {
@@ -131,16 +132,32 @@ ul {
     border-radius: 0.5rem;
     padding: 0.5rem;
     background-color: antiquewhite;
-}
 
+    &[data-variant="secondary"] {
+        background-color: grey;
+        color: white;
+    }
+}
 
 /* https://developer.mozilla.org/en-US/docs/Web/HTML/How_to/Use_data_attributes */
-.btn[data-variant="secondary"] {
-    background-color: grey;
-    color: white;
-}
+
 
 /* possible but not very good to use alt tag like this, could work for other things maybe */
 [alt="placeholder"] {
     opacity: 0.8;
+}
+
+footer {
+    >h2 {
+        /* since this is still a h2 we can override the value of that local variable */
+        --_clr-local-variable: var(--clr-secondary);
+
+        +p {
+            color: red;
+        }
+    }
+}
+
+.flow>*+* {
+    margin-top: 1rem;
 }
