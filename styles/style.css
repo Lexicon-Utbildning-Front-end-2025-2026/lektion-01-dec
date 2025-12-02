@@ -56,6 +56,7 @@ a {
     text-decoration: none;
     color: var(--clr-primary);
 
+    /* & says - no space inbetween, so this means a:hover and not a :hover */
     &:hover {
         text-decoration: underline;
     }
@@ -120,6 +121,7 @@ ul {
     padding-inline-start: var(--spacing-large);
 }
 
+/* no need to nest if we don't have styles inside both the main selected element and the children */
 .main-list>li {
     border: 1px dotted cornflowerblue;
 }
@@ -133,13 +135,12 @@ ul {
     padding: 0.5rem;
     background-color: antiquewhite;
 
+    /* https://developer.mozilla.org/en-US/docs/Web/HTML/How_to/Use_data_attributes */
     &[data-variant="secondary"] {
         background-color: grey;
         color: white;
     }
 }
-
-/* https://developer.mozilla.org/en-US/docs/Web/HTML/How_to/Use_data_attributes */
 
 
 /* possible but not very good to use alt tag like this, could work for other things maybe */
@@ -152,12 +153,15 @@ footer {
         /* since this is still a h2 we can override the value of that local variable */
         --_clr-local-variable: var(--clr-secondary);
 
+        /* selects the first occurance of p after h2 inside the footer */
         +p {
             color: red;
         }
     }
 }
 
+/* utility/composition class */
+/* selects all but first inside the flow class and give that some margin at the top */
 .flow>*+* {
     margin-top: 1rem;
 }
