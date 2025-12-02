@@ -122,3 +122,25 @@ ul {
     margin: var(--spacing) 0;
     padding-inline-start: var(--spacing-large);
 }
+
+.article-example-1 {
+    border: 5px solid rebeccapurple;
+}
+
+.btn {
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    background-color: antiquewhite;
+}
+
+
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/How_to/Use_data_attributes */
+.btn[data-variant="secondary"] {
+    background-color: grey;
+    color: white;
+}
+
+/* possible but not very good to use alt tag like this, could work for other things maybe */
+[alt="placeholder"] {
+    opacity: 0.8;
+}
